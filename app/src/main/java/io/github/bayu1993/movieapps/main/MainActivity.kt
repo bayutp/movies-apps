@@ -6,7 +6,7 @@ import android.support.v7.widget.GridLayoutManager
 import android.util.Log
 import com.google.gson.Gson
 import io.github.bayu1993.movieapps.R
-import io.github.bayu1993.movieapps.Utils.gone
+import io.github.bayu1993.movieapps.utils.gone
 import io.github.bayu1993.movieapps.adapter.MoviesAdapter
 import io.github.bayu1993.movieapps.data.MoviesModel
 import io.github.bayu1993.movieapps.network.MovieClient
@@ -21,8 +21,8 @@ class MainActivity : AppCompatActivity() {
 
     private val compositeDisposable = CompositeDisposable()
     private val movieList: MutableList<MoviesModel.Result> = mutableListOf()
-    lateinit var movieService: MovieService
-    lateinit var adapterMovies: MoviesAdapter
+    private lateinit var movieService: MovieService
+    private lateinit var adapterMovies: MoviesAdapter
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
         }
     }
 
-    fun getPopularMovies() {
+    private fun getPopularMovies() {
         compositeDisposable.add(
                 movieService.getPopilarMovies()
                         .observeOn(AndroidSchedulers.mainThread())

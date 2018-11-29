@@ -2,7 +2,7 @@ package io.github.bayu1993.movieapps.network
 
 import io.github.bayu1993.movieapps.BuildConfig
 import io.github.bayu1993.movieapps.data.MoviesModel.ResponseModel
-import io.github.bayu1993.movieapps.Utils.MOVIE_ENDPOINT
+import io.github.bayu1993.movieapps.utils.MOVIE_ENDPOINT
 import io.reactivex.Observable
 import retrofit2.http.GET
 import retrofit2.http.Query

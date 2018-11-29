@@ -1,4 +1,4 @@
-package io.github.bayu1993.movieapps.Utils
+package io.github.bayu1993.movieapps.utils
 
 import android.view.View
 import android.widget.ImageView

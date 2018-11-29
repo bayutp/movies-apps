@@ -5,8 +5,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.bayu1993.movieapps.R
-import io.github.bayu1993.movieapps.Utils.BASE_IMAGE_URL
-import io.github.bayu1993.movieapps.Utils.loadImage
+import io.github.bayu1993.movieapps.utils.BASE_IMAGE_URL
+import io.github.bayu1993.movieapps.utils.loadImage
 import io.github.bayu1993.movieapps.adapter.MoviesAdapter.ViewHolder
 import io.github.bayu1993.movieapps.data.MoviesModel
 import kotlinx.android.synthetic.main.item_movies.view.*
@@ -16,7 +16,7 @@ import kotlinx.android.synthetic.main.item_movies.view.*
  * email : bayuteguhpamuji@gmail.com.
  */
 
-class MoviesAdapter(val movies: List<MoviesModel.Result>) : RecyclerView.Adapter<ViewHolder>() {
+class MoviesAdapter(private val movies: List<MoviesModel.Result>) : RecyclerView.Adapter<ViewHolder>() {
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
         return ViewHolder(LayoutInflater.from(parent.context).inflate(R.layout.item_movies, parent, false))
     }
