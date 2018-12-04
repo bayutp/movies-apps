@@ -1,4 +1,4 @@
-package io.github.bayu1993.movieapps.base
+package io.github.bayu1993.movieapps.ui.base
 
 /**
  * Created by Bayu teguh pamuji on 12/3/18.

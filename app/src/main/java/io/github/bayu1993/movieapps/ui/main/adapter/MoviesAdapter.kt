@@ -1,11 +1,11 @@
-package io.github.bayu1993.movieapps.adapter
+package io.github.bayu1993.movieapps.ui.main.adapter
 
 import android.support.v7.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import io.github.bayu1993.movieapps.R
-import io.github.bayu1993.movieapps.adapter.MoviesAdapter.ViewHolder
+import io.github.bayu1993.movieapps.ui.main.adapter.MoviesAdapter.ViewHolder
 import io.github.bayu1993.movieapps.data.MoviesModel
 import io.github.bayu1993.movieapps.utils.BASE_IMAGE_URL
 import io.github.bayu1993.movieapps.utils.loadImage

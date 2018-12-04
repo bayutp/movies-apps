@@ -1,22 +1,22 @@
-package io.github.bayu1993.movieapps.main.view
+package io.github.bayu1993.movieapps.ui.main.view
 
 import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import io.github.bayu1993.movieapps.R
-import io.github.bayu1993.movieapps.adapter.MoviesAdapter
 import io.github.bayu1993.movieapps.data.MoviesModel
-import io.github.bayu1993.movieapps.main.presenter.MainPresenter
-import io.github.bayu1993.movieapps.utils.Injector
+import io.github.bayu1993.movieapps.ui.main.adapter.MoviesAdapter
+import io.github.bayu1993.movieapps.ui.main.presenter.MainPresenter
 import io.github.bayu1993.movieapps.utils.gone
 import io.github.bayu1993.movieapps.utils.visible
 import kotlinx.android.synthetic.main.activity_main.*
 import org.jetbrains.anko.toast
+import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(), MovieContract.View {
     private val movieList: MutableList<MoviesModel.Result> = mutableListOf()
     private lateinit var adapterMovies: MoviesAdapter
-    private lateinit var mainPresenter: MainPresenter
+    private val mainPresenter: MainPresenter by inject()
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -49,7 +49,6 @@ class MainActivity : AppCompatActivity(), MovieContract.View {
     }
 
     private fun initView() {
-        mainPresenter = Injector.provideMainPresenter()
         onAttachView()
         mainPresenter.getPopularMovies()
 

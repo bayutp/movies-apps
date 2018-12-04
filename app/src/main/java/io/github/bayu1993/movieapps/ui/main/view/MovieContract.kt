@@ -1,6 +1,6 @@
-package io.github.bayu1993.movieapps.main.view
+package io.github.bayu1993.movieapps.ui.main.view
 
-import io.github.bayu1993.movieapps.base.BaseContract
+import io.github.bayu1993.movieapps.ui.base.BaseContract
 import io.github.bayu1993.movieapps.data.MoviesModel
 
 /**

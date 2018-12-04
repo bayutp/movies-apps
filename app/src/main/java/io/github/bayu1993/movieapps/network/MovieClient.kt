@@ -11,7 +11,7 @@ import retrofit2.converter.gson.GsonConverterFactory
  * Created by Bayu teguh pamuji on 11/28/18.
  * email : bayuteguhpamuji@gmail.com.
  */
-object MovieClient {
+class MovieClient {
     fun create(): MovieService {
         val retrofit = Retrofit.Builder()
             .client(provideOkhttpClient())
