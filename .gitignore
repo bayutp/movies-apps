@@ -9,5 +9,5 @@
 /build
 /captures
 /.idea
-/app/apikey
+/app/apikey.txt
 .externalNativeBuild
