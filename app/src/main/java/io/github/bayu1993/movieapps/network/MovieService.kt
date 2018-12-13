@@ -4,6 +4,7 @@ import io.github.bayu1993.movieapps.BuildConfig
 import io.github.bayu1993.movieapps.data.MoviesModel.ResponseModel
 import io.github.bayu1993.movieapps.utils.MOVIE_ENDPOINT
 import io.reactivex.Observable
+import io.reactivex.Single
 import retrofit2.http.GET
 import retrofit2.http.Query
 
@@ -14,5 +15,5 @@ import retrofit2.http.Query
 
 interface MovieService {
     @GET(MOVIE_ENDPOINT)
-    fun getPopilarMovies(@Query("api_key") apiKey: String = BuildConfig.API_KEY): Observable<ResponseModel>
+    fun getPopilarMovies(@Query("api_key") apiKey: String = BuildConfig.API_KEY): Single<ResponseModel>
 }

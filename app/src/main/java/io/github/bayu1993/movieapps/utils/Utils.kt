@@ -11,6 +11,7 @@ import com.squareup.picasso.Picasso
 
 const val MOVIE_ENDPOINT = "movie/popular"
 const val BASE_IMAGE_URL = "http://image.tmdb.org/t/p/w185_and_h278_bestv2"
+const val ID_MOVIE = "ID_MOVIE"
 
 fun ImageView.loadImage(url: String) {
     Picasso.get()

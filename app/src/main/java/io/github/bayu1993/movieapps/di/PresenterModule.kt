@@ -1,5 +1,6 @@
 package io.github.bayu1993.movieapps.di
 
+import io.github.bayu1993.movieapps.ui.detail.DetailPresenter
 import io.github.bayu1993.movieapps.ui.main.presenter.MainPresenter
 import org.koin.dsl.module.module
 
@@ -10,4 +11,5 @@ import org.koin.dsl.module.module
 
 val presenterModule = module {
     factory { MainPresenter(get(),get()) }
+    factory { DetailPresenter(get(),get()) }
 }

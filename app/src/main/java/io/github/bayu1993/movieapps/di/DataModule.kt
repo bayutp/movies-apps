@@ -1,5 +1,6 @@
 package io.github.bayu1993.movieapps.di
 
+import io.github.bayu1993.movieapps.data.repo.LocalDataSources
 import io.github.bayu1993.movieapps.data.repo.MovieRepo
 import io.github.bayu1993.movieapps.data.repo.RemoteMovieDataSource
 import org.koin.dsl.module.module
@@ -11,5 +12,6 @@ import org.koin.dsl.module.module
 
 val dataModule = module {
     single { RemoteMovieDataSource(get()) }
-    single { MovieRepo(get()) }
+    single { LocalDataSources(get()) }
+    single { MovieRepo(get(),get()) }
 }

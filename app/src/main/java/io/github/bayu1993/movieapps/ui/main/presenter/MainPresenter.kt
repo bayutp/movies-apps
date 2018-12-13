@@ -3,9 +3,11 @@ package io.github.bayu1993.movieapps.ui.main.presenter
 import com.google.gson.Gson
 import io.github.bayu1993.movieapps.data.repo.MovieRepo
 import io.github.bayu1993.movieapps.ui.main.view.MovieContract
+import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.rxkotlin.addTo
 import io.reactivex.rxkotlin.subscribeBy
+import io.reactivex.schedulers.Schedulers
 import timber.log.Timber
 
 /**
@@ -18,11 +20,14 @@ class MainPresenter(val movieRepo: MovieRepo, val compositeDisposable: Composite
 
     override fun getPopularMovies() {
         mView?.showView()
-        movieRepo.getPopularMovies().subscribeBy(
-            onNext = {
+        movieRepo.getPopularsMovies()
+            .observeOn(AndroidSchedulers.mainThread())
+            .subscribeOn(Schedulers.io())
+            .subscribeBy(
+            onSuccess = {
                 mView?.hideView()
-                mView?.showPopularMovies(it.results)
-                Timber.d("result : ${Gson().toJsonTree(it.results)}")
+                mView?.showPopularMovies(it)
+                Timber.d("result : ${Gson().toJsonTree(it)}")
             },
             onError = {
                 mView?.hideView()

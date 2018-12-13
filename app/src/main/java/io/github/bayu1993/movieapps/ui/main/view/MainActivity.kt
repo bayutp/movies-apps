@@ -4,17 +4,20 @@ import android.os.Bundle
 import android.support.v7.app.AppCompatActivity
 import android.support.v7.widget.GridLayoutManager
 import io.github.bayu1993.movieapps.R
-import io.github.bayu1993.movieapps.data.MoviesModel
+import io.github.bayu1993.movieapps.data.PopularMovie
+import io.github.bayu1993.movieapps.ui.detail.DetailActivity
 import io.github.bayu1993.movieapps.ui.main.adapter.MoviesAdapter
 import io.github.bayu1993.movieapps.ui.main.presenter.MainPresenter
+import io.github.bayu1993.movieapps.utils.ID_MOVIE
 import io.github.bayu1993.movieapps.utils.gone
 import io.github.bayu1993.movieapps.utils.visible
 import kotlinx.android.synthetic.main.activity_main.*
+import org.jetbrains.anko.startActivity
 import org.jetbrains.anko.toast
 import org.koin.android.ext.android.inject
 
 class MainActivity : AppCompatActivity(), MovieContract.View {
-    private val movieList: MutableList<MoviesModel.Result> = mutableListOf()
+    private val movieList: MutableList<PopularMovie> = mutableListOf()
     private lateinit var adapterMovies: MoviesAdapter
     private val mainPresenter: MainPresenter by inject()
 
@@ -25,7 +28,7 @@ class MainActivity : AppCompatActivity(), MovieContract.View {
         initView()
     }
 
-    override fun showPopularMovies(movies: List<MoviesModel.Result>) {
+    override fun showPopularMovies(movies: List<PopularMovie>) {
         movieList.addAll(movies)
         adapterMovies.notifyDataSetChanged()
     }
@@ -53,7 +56,7 @@ class MainActivity : AppCompatActivity(), MovieContract.View {
         mainPresenter.getPopularMovies()
 
         adapterMovies = MoviesAdapter(movieList) {
-            toast(it.original_title).show()
+            startActivity<DetailActivity>(ID_MOVIE to it.id)
         }
         rv_movie.apply {
             layoutManager = GridLayoutManager(this@MainActivity, 3)
